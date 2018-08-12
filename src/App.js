@@ -1,4 +1,4 @@
-import React,{Component} from 'react';
+import React,{ Component } from 'react';
 import CardList from './CardList'
 import {robots }from'./robots';
 import SearchBox from  './SearchBox';
@@ -12,23 +12,22 @@ class App extends Component{
 			searchfield: ''
 		}
 	}
-	onSearchChange =(event) => {
-		console.log(event);
-		this.setState({searchfield:event.target.value})
-	
-
+	onSearchChange = (event) => {
+		this.setState({searchfield: event.target.value})
+		
 	}
 	render(){
-		const filteredRobots = this.state.robots.filter(robots=>{
+			const filteredRobots = this.state.robots.filter(robots=>{
 		return robots.name.toLowerCase().includes(this.state.searchfield.toLowerCase());
 		})
-
 		return(
 			<div className='tc'>
 				<h1>Robofriends</h1>
-				<SearchBox searchChange={this.onSearchChange} />
+				<SearchBox SearchChange ={this.onSearchChange}/>
 				<CardList robots={filteredRobots}/>
 			</div>
+
+
 		);
 	}
 	
